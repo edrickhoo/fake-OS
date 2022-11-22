@@ -1,3 +1,76 @@
+*,
+html {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
 
+.wallpaper {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  object-fit: cover;
+}
+
+.task-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  box-shadow: inset 0px 5px 0px -3px rgba(255, 255, 255, 0.75);
+  background-color: #c3c3c3;
+  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.task-bar__start {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 1px 4px;
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(255, 255, 255, 0.75), 1px 1px 0px 0px rgba(0, 0, 0, 0.75);
+}
+.task-bar__start--selected {
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(0, 0, 0, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+}
+.task-bar__start--img {
+  height: 20px;
+  width: 20px;
+}
+.task-bar__clock {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 4px 5px;
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+}
+
+.start-menu {
+  display: none;
+  background-color: #c3c3c3;
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(255, 255, 255, 0.75), 1px 1px 0px 0px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  bottom: 28px;
+  left: 2px;
+  height: 400px;
+  width: 200px;
+  padding: 2px 2px 0 2px;
+}
+.start-menu--toggle {
+  display: flex;
+}
+.start-menu__side-banner {
+  display: flex;
+}
+.start-menu__side-banner--text {
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  color: #fdffff;
+  font-size: 20px;
+  background-color: #010081;
+  background: linear-gradient(rgb(44, 191, 250), #010081);
+  padding: 10px 2px;
+}
 
 /*# sourceMappingURL=output.css.map */
