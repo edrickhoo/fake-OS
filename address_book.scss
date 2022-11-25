@@ -1,0 +1,41 @@
+@use "./_partials/palette";
+@use "./mixins/mixins.scss";
+
+.address_book {
+  width: 100%;
+  height: 100%;
+  background-color: palette.$white;
+  &__table {
+    width: 100%;
+    border-spacing: 0px;
+    overflow-y: scroll;
+    &--header {
+      @include mixins.default-boxshadow;
+      background-color: palette.$light-gray;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+
+    &--input {
+      margin: 0px 2px;
+      padding: 0px;
+    }
+
+    &--submit {
+      margin-left: auto;
+      margin-right: 3px;
+      @include mixins.default-boxshadow;
+      padding: 2px 7px;
+
+      &:active {
+        box-shadow: inset 4.5px 4.5px 0px -3px rgba(0, 0, 0, 0.75),
+          1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+      }
+    }
+  }
+}

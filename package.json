@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "fake-os",
+  "version": "1.0.0",
+  "description": "Re-creating windows 98 OS with html, css and javascript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edrickhoo/fake-OS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edrickhoo/fake-OS/issues"
+  },
+  "homepage": "https://github.com/edrickhoo/fake-OS#readme"
+}
