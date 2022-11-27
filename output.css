@@ -131,7 +131,6 @@
   overflow-y: scroll;
 }
 .address_book__table {
-  height: 200px;
   border-spacing: 0px;
   width: 100%;
 }

@@ -8,9 +8,7 @@
   overflow-y: scroll;
 
   &__table {
-    height: 200px;
     border-spacing: 0px;
-
     width: 100%;
     &--header {
       @include mixins.default-boxshadow;
