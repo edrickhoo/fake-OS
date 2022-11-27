@@ -31,7 +31,30 @@
   padding: 4px 5px;
   box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
 }
-
+.task-bar__apps {
+  display: flex;
+  flex: 1;
+  padding: 0 5px;
+}
+.task-bar__app {
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(255, 255, 255, 0.75), 1px 1px 0px 0px rgba(0, 0, 0, 0.75);
+  width: 150px;
+  display: flex;
+  align-items: center;
+  padding: 3px 4px 2px 4px;
+  margin-right: 3px;
+}
+.task-bar__app > img {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+.task-bar__app:active {
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+}
+.task-bar__app--selected {
+  box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
+}
 .start-menu {
   display: none;
   background-color: #c3c3c3;
@@ -105,17 +128,39 @@
   width: 100%;
   height: 100%;
   background-color: #fdffff;
+  overflow-y: scroll;
 }
 .address_book__table {
-  width: 100%;
+  height: 200px;
   border-spacing: 0px;
-  overflow-y: scroll;
+  width: 100%;
 }
 .address_book__table--header {
   box-shadow: inset 4.5px 4.5px 0px -3px rgba(255, 255, 255, 0.75), 1px 1px 0px 0px rgba(0, 0, 0, 0.75);
   background-color: #c3c3c3;
-  margin: 0;
-  padding: 0;
+  padding-top: 2px;
+}
+.address_book__table--tel {
+  max-width: 70px;
+  overflow-wrap: break-word;
+}
+.address_book__table--name {
+  max-width: 200px;
+  overflow-wrap: break-word;
+}
+.address_book__table--address {
+  max-width: 200px;
+  overflow-wrap: break-word;
+  padding-right: 25px;
+}
+.address_book__table--row {
+  position: relative;
+}
+.address_book__table--close {
+  position: absolute;
+  right: 7px;
+  top: 2px;
+  cursor: pointer;
 }
 .address_book__form {
   display: flex;

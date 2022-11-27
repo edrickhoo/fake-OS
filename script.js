@@ -35,12 +35,26 @@ startBtn.addEventListener("click", toggleStartMenu);
 // Apps, notepad, photos, phone book, maybe feedback form
 
 const closeWindow = (e) => {
-  console.log(e.target);
+  console.log(e.target.parentElement);
 
   e.target.src
     ? (e.target.parentElement.parentElement.parentElement.style.display =
         "none")
     : (e.target.parentElement.parentElement.style.display = "none");
+
+  let appName = "";
+
+  if (e.target.src) {
+    appName = e.target.parentElement.parentElement
+      .querySelector(".app__header-bar--title")
+      .textContent.toLowerCase();
+  } else {
+    appName = e.target.parentElement
+      .querySelector(".app__header-bar--title")
+      .textContent.toLowerCase();
+  }
+
+  removeInOpenedApps(appName);
 };
 
 closeBtns.forEach((btn) => {
@@ -49,10 +63,53 @@ closeBtns.forEach((btn) => {
   });
 });
 
+// render taskbar apps
+let openedApps = [];
+
+const renderTaskApps = () => {
+  const taskBar = document.querySelector(".task-bar__apps");
+
+  taskBar.innerHTML = "";
+
+  openedApps.forEach((app) => {
+    const div = document.createElement("div");
+    div.classList.add(
+      "task-bar__app",
+      `task-bar__apps--${app.name.toLowerCase()}`
+    );
+
+    div.innerHTML = ` <img src="${app.img}" alt="${app.name}" /><span>${app.name}</span>`;
+
+    taskBar.appendChild(div);
+  });
+};
+
+const addToOpenedApps = (appName) => {
+  const app = {
+    name: appName,
+    img: `./assets/icons/${appName}.png`,
+  };
+
+  if (!(openedApps.filter((item) => item.name === appName).length > 0)) {
+    openedApps.push(app);
+  }
+
+  renderTaskApps();
+};
+
+const removeInOpenedApps = (appName) => {
+  console.log("appname", appName);
+  openedApps = openedApps.filter(
+    (app) => app.name.toLowerCase() !== appName.toLowerCase()
+  );
+
+  renderTaskApps();
+};
+
 const openWindow = (appName) => {
   let app = document.querySelector(`.app__${appName}`);
-
   app.style.display = "flex";
+  addToOpenedApps(appName);
 };
 
 let notepadDesktopIcon = document.querySelector(".desktop__icon--notepad");
@@ -173,10 +230,34 @@ const renderAddressBook = () => {
     const tr = document.createElement("tr");
     tr.innerHTML = `<td class="address_book__table--name">${entry.name}</td>
     <td class="address_book__table--tel">${entry.tel}</td>
-    <td class="address_book__table--address">${entry.address}</td>`;
+    <td class="address_book__table--address">${entry.address}</td>
+    `;
 
+    let removeBtn = document.createElement("img");
+    removeBtn.src = "./assets/icons/media_player_stream_no2-1.png";
+
+    removeBtn.classList.add("address_book__table--close");
+
+    removeBtn.addEventListener("click", () => {
+      removeAddressEntry(entry.id);
+    });
+
+    tr.appendChild(removeBtn);
+
+    tr.classList.add("address_book__table--row");
     addressTable.appendChild(tr);
   });
+};
+
+// Remove addres entry
+
+const removeAddressEntry = (id) => {
+  // remove from database
+  addressBookDataBase = addressBookDataBase.filter((item) => item.id !== id);
+
+  localStorage.setItem("addressBook", JSON.stringify(addressBookDataBase));
+
+  renderAddressBook();
 };
 
 const addToAddressBook = (e) => {
@@ -189,6 +270,12 @@ const addToAddressBook = (e) => {
 
   const formDataObj = {};
   myFormData.forEach((value, key) => (formDataObj[key] = value));
+
+  let id = new Date().valueOf();
+  console.log(id);
+
+  formDataObj.id = id;
+
   console.log(formDataObj);
 
   if (formDataObj.name !== "") {
@@ -273,10 +360,12 @@ const populateBoard = () => {
   let squares = board.querySelectorAll("div");
   squares.forEach((div) => div.remove());
 
-  board.style.gridTemplateColumns = "repeat(20 , 1fr)";
-  board.style.gridTemplateRows = "repeat(20 , 1fr)";
+  let screenSize = 80;
 
-  for (let i = 0; i < 400; i++) {
+  board.style.gridTemplateColumns = `repeat(${screenSize} , 1fr)`;
+  board.style.gridTemplateRows = `repeat(${screenSize} , 1fr)`;
+
+  for (let i = 0; i < screenSize ** 2; i++) {
     let square = document.createElement("div");
     square.addEventListener("mouseover", (e) => {
       colorSquare(e);
@@ -322,6 +411,8 @@ document.querySelector(".paint__board").addEventListener("click", (e) => {
   toggleDraw(e);
 });
 
+// Adding paint btn events
+
 const paintBtns = document.querySelector(".paint__btns").children;
 
 for (let i = 0; i < paintBtns.length; i++) {
@@ -341,8 +432,40 @@ for (let i = 0; i < paintBtns.length; i++) {
   }
 }
 
-console.log(paintBtns);
+// Changing window z index
 
 const applications = document.querySelectorAll(".app");
 
-console.log(applications);
+const changeZIndex = (app) => {
+  app.style.zIndex = 1;
+
+  applications.forEach((a) => {
+    if (a !== app) {
+      a.style.zIndex = 0;
+    }
+  });
+};
+
+// Select taskbar when clicked
+
+const selectApp = (app) => {
+  let appName = app
+    .querySelector(".app__header-bar")
+    .querySelector(".app__header-bar--title")
+    .textContent.toLowerCase();
+
+  let taskBarApp = document.querySelector(`.task-bar__apps--${appName}`);
+
+  document.querySelectorAll(".task-bar__app").forEach((application) => {
+    application.classList.remove("task-bar__app--selected");
+  });
+
+  taskBarApp?.classList.add("task-bar__app--selected");
+};
+
+applications.forEach((app) => {
+  app.addEventListener("click", () => {
+    changeZIndex(app);
+    selectApp(app);
+  });
+});
