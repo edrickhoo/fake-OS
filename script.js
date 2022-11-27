@@ -1,3 +1,5 @@
+import { dragElement } from "./DragWindows.js";
+
 const menuClock = document.querySelector(".task-bar__clock");
 const startBtn = document.querySelector(".task-bar__start");
 
@@ -30,13 +32,22 @@ const toggleStartMenu = () => {
   startBtn.classList.toggle("task-bar__start--selected");
 };
 
-startBtn.addEventListener("click", toggleStartMenu);
+startBtn.addEventListener("click", () => toggleStartMenu());
+
+const closeStartMenu = (e) => {
+  startMenu.classList.remove("start-menu--toggle");
+  startBtn.classList.remove("task-bar__start--selected");
+};
+
+let wallpaper = document.querySelector(".wallpaper");
+
+wallpaper.addEventListener("click", (e) => {
+  closeStartMenu(e);
+});
 
 // Apps, notepad, photos, phone book, maybe feedback form
 
 const closeWindow = (e) => {
-  console.log(e.target.parentElement);
-
   e.target.src
     ? (e.target.parentElement.parentElement.parentElement.style.display =
         "none")
@@ -98,7 +109,6 @@ const addToOpenedApps = (appName) => {
 };
 
 const removeInOpenedApps = (appName) => {
-  console.log("appname", appName);
   openedApps = openedApps.filter(
     (app) => app.name.toLowerCase() !== appName.toLowerCase()
   );
@@ -266,17 +276,13 @@ const addToAddressBook = (e) => {
   const myFormData = new FormData(
     document.querySelector(".address_book__form")
   );
-  console.log(myFormData);
 
   const formDataObj = {};
   myFormData.forEach((value, key) => (formDataObj[key] = value));
 
   let id = new Date().valueOf();
-  console.log(id);
 
   formDataObj.id = id;
-
-  console.log(formDataObj);
 
   if (formDataObj.name !== "") {
     // Push to DataBase
@@ -297,54 +303,6 @@ addressBookAddBtn.addEventListener("click", (e) => {
 });
 
 // Dragable
-
-// Make the DIV element draggable:
-
-function dragElement(elmnt) {
-  var pos1 = 0,
-    pos2 = 0,
-    pos3 = 0,
-    pos4 = 0;
-
-  if (document.querySelector(`.${elmnt.classList[1]}--header-bar`)) {
-    // if present, the header is where you move the DIV from:
-    document.querySelector(`.${elmnt.classList[1]}--header-bar`).onmousedown =
-      dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-    elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-  }
-
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
 
 dragElement(document.querySelector(".app__address_book"));
 dragElement(document.querySelector(".app__notepad"));

@@ -3,7 +3,7 @@
   "name": "fake-os",
   "version": "1.0.0",
   "description": "Re-creating windows 98 OS with html, css and javascript",
-  "main": "script.js",
+  "main": "DragWindows.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/edrickhoo/fake-OS.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
