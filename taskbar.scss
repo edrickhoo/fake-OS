@@ -34,6 +34,7 @@
     user-select: none;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     padding: 4px 5px;
     box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75),
       1px 1px 0px 0px rgba(255, 255, 255, 0.75);

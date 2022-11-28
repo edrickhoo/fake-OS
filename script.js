@@ -1,23 +1,20 @@
 import { dragElement } from "./DragWindows.js";
+import { populateBoard, changeColor, resetBoard, toggleDraw } from "./paint.js";
+import { getCurrentTime } from "./clock.js";
 
 const menuClock = document.querySelector(".task-bar__clock");
 const startBtn = document.querySelector(".task-bar__start");
 
 const closeBtns = document.querySelectorAll(".app__header-bar--close");
 
-let startMenu = document.querySelector(".start-menu");
+const startMenu = document.querySelector(".start-menu");
 
-const getCurrentTime = () => {
-  let date = new Date().toString().slice(16, 24);
-  let currentTime = "00:00:00 AM";
-
-  if (Number(date.substring(0, 2)) > 12) {
-    currentTime = `${date} PM`;
-  } else {
-    currentTime = `${date} AM`;
-  }
-  return currentTime;
-};
+// Retrive messages from local storage on load if they exist
+let addressBookDataBase = [];
+const entries = JSON.parse(localStorage.getItem("addressBook"));
+if (Array.isArray(entries) && entries.length > 0) {
+  addressBookDataBase = entries;
+}
 
 const setCurrentTime = () => {
   let currentTime = getCurrentTime();
@@ -48,6 +45,7 @@ wallpaper.addEventListener("click", (e) => {
 // Apps, notepad, photos, phone book, maybe feedback form
 
 const closeWindow = (e) => {
+  // Targets container and hides it
   e.target.src
     ? (e.target.parentElement.parentElement.parentElement.style.display =
         "none")
@@ -55,6 +53,7 @@ const closeWindow = (e) => {
 
   let appName = "";
 
+  // Close window app on taskbar by getting appName
   if (e.target.src) {
     appName = e.target.parentElement.parentElement
       .querySelector(".app__header-bar--title")
@@ -84,12 +83,18 @@ const renderTaskApps = () => {
 
   openedApps.forEach((app) => {
     const div = document.createElement("div");
+
+    let appNameCapitalized = app.name
+      .split("")
+      .map((letter, i) => (i === 0 ? letter.toUpperCase() : letter))
+      .join("");
+
     div.classList.add(
       "task-bar__app",
       `task-bar__apps--${app.name.toLowerCase()}`
     );
 
-    div.innerHTML = ` <img src="${app.img}" alt="${app.name}" /><span>${app.name}</span>`;
+    div.innerHTML = ` <img src="${app.img}" alt="${app.name}" /><span>${appNameCapitalized}</span>`;
 
     taskBar.appendChild(div);
   });
@@ -209,10 +214,6 @@ notepadDelete.addEventListener("click", () => {
 
 // Address book
 
-let addressBookDataBase = [
-  { name: "test", tel: "041235678", address: "5 water place" },
-];
-
 const addressTable = document.querySelector(".address_book__table");
 
 const addressBookForm = document.querySelector(".address_book__form");
@@ -229,12 +230,6 @@ const renderAddressBook = () => {
   <th class="address_book__table--header">Phone</th>
   <th class="address_book__table--header">Address</th>
 </tr>`;
-
-  const entries = JSON.parse(localStorage.getItem("addressBook"));
-
-  if (Array.isArray(entries) && entries.length > 0) {
-    addressBookDataBase = entries;
-  }
 
   addressBookDataBase.forEach((entry) => {
     const tr = document.createElement("tr");
@@ -308,63 +303,7 @@ dragElement(document.querySelector(".app__address_book"));
 dragElement(document.querySelector(".app__notepad"));
 dragElement(document.querySelector(".app__paint"));
 
-// Paint
-
-let color = "black";
-let click = true;
-
-const populateBoard = () => {
-  let board = document.querySelector(".paint__board");
-  let squares = board.querySelectorAll("div");
-  squares.forEach((div) => div.remove());
-
-  let screenSize = 80;
-
-  board.style.gridTemplateColumns = `repeat(${screenSize} , 1fr)`;
-  board.style.gridTemplateRows = `repeat(${screenSize} , 1fr)`;
-
-  for (let i = 0; i < screenSize ** 2; i++) {
-    let square = document.createElement("div");
-    square.addEventListener("mouseover", (e) => {
-      colorSquare(e);
-    });
-    square.style.backgroundColor = "white";
-    // board.insertAdjacentElement("beforeend", square);
-    board.appendChild(square);
-  }
-};
-
-const colorSquare = (e) => {
-  if (click) {
-    if (color === "random") {
-      e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    } else {
-      e.target.style.backgroundColor = color;
-    }
-  }
-};
-
-const changeColor = (choice) => {
-  color = choice;
-};
-
-const resetBoard = () => {
-  let board = document.querySelector(".paint__board");
-  let squares = board.querySelectorAll("div");
-  squares.forEach((div) => (div.style.backgroundColor = "white"));
-};
-
-const toggleDraw = (e) => {
-  if (e.target.tagName != "BUTTON") {
-    click = !click;
-    if (click) {
-      document.querySelector(".paint__mode").textContent = "Mode: Coloring";
-    } else {
-      document.querySelector(".paint__mode").textContent = "Mode: Not Coloring";
-    }
-  }
-};
-
+// Paint toggle coloring
 document.querySelector(".paint__board").addEventListener("click", (e) => {
   toggleDraw(e);
 });
