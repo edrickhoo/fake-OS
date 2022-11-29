@@ -1,6 +1,7 @@
 let color = "black";
 let click = true;
 
+// Creates divs and adds hover events to them
 export const populateBoard = () => {
   let board = document.querySelector(".paint__board");
   let squares = board.querySelectorAll("div");
@@ -21,6 +22,7 @@ export const populateBoard = () => {
   }
 };
 
+// Changes div background to the variable color, or randomizes a number if the variable is random
 export const colorSquare = (e) => {
   if (click) {
     if (color === "random") {
@@ -31,16 +33,19 @@ export const colorSquare = (e) => {
   }
 };
 
+// Sets global variable to specific color choice
 export const changeColor = (choice) => {
   color = choice;
 };
 
+// Changes divs background to white
 export const resetBoard = () => {
   let board = document.querySelector(".paint__board");
   let squares = board.querySelectorAll("div");
   squares.forEach((div) => (div.style.backgroundColor = "white"));
 };
 
+// Changes global variable to true or false
 export const toggleDraw = (e) => {
   if (e.target.tagName != "BUTTON") {
     click = !click;

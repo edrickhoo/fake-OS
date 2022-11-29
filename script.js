@@ -36,13 +36,12 @@ const closeStartMenu = (e) => {
   startBtn.classList.remove("task-bar__start--selected");
 };
 
+// Close start menu when wallpaper is clicked
 let wallpaper = document.querySelector(".wallpaper");
 
 wallpaper.addEventListener("click", (e) => {
   closeStartMenu(e);
 });
-
-// Apps, notepad, photos, phone book, maybe feedback form
 
 const closeWindow = (e) => {
   // Targets container and hides it
@@ -100,6 +99,7 @@ const renderTaskApps = () => {
   });
 };
 
+// When opening an app add it the list to be render at the bottom and re-render
 const addToOpenedApps = (appName) => {
   const app = {
     name: appName,
@@ -113,6 +113,7 @@ const addToOpenedApps = (appName) => {
   renderTaskApps();
 };
 
+// Remove app from list and re-render task bar
 const removeInOpenedApps = (appName) => {
   openedApps = openedApps.filter(
     (app) => app.name.toLowerCase() !== appName.toLowerCase()
@@ -121,6 +122,7 @@ const removeInOpenedApps = (appName) => {
   renderTaskApps();
 };
 
+// Opening a app window
 const openWindow = (appName) => {
   let app = document.querySelector(`.app__${appName}`);
   app.style.display = "flex";
@@ -185,6 +187,7 @@ const saveNotepad = () => {
   localStorage.setItem("notepadMessage", text);
 };
 
+// Gets message from local stoarge if it exits
 const retriveNotepad = () => {
   const message = localStorage.getItem("notepadMessage");
 
@@ -218,12 +221,14 @@ const addressTable = document.querySelector(".address_book__table");
 
 const addressBookForm = document.querySelector(".address_book__form");
 
+// Adds to data list and saves to local stoarge
 const saveToBookData = (entry) => {
   addressBookDataBase.push(entry);
 
   localStorage.setItem("addressBook", JSON.stringify(addressBookDataBase));
 };
 
+// Rendering enteries in the address book
 const renderAddressBook = () => {
   addressTable.innerHTML = `<tr>
   <th class="address_book__table--header">Name</th>
@@ -265,6 +270,7 @@ const removeAddressEntry = (id) => {
   renderAddressBook();
 };
 
+// Gets data from form and saves it to list/local-storage and renders enteries
 const addToAddressBook = (e) => {
   e.preventDefault();
 
@@ -329,7 +335,7 @@ for (let i = 0; i < paintBtns.length; i++) {
   }
 }
 
-// Changing window z index
+// Changing window z index. This brings the window to the fore-ground when click
 
 const applications = document.querySelectorAll(".app");
 
@@ -343,7 +349,7 @@ const changeZIndex = (app) => {
   });
 };
 
-// Select taskbar when clicked
+// Select taskbar app when clicked
 
 const selectApp = (app) => {
   let appName = app
