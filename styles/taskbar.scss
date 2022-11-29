@@ -1,6 +1,5 @@
-@use "./_partials/palette";
-@use "./mixins/mixins.scss";
-
+@use "../_partials/palette";
+@use "../mixins/mixins.scss";
 .task-bar {
   position: fixed;
   bottom: 0;

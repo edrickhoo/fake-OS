@@ -1,13 +1,13 @@
-@use "./_partials/palette";
-@use "./mixins/mixins.scss";
-@use "./taskbar.scss";
-@use "./startmenu.scss";
-@use "./desktop.scss";
-@use "./address_book.scss";
-@use "./applications.scss";
-@use "./notepad.scss";
-@use "./paint.scss";
-@use "./wallpaper.scss";
+@use "./styles/_partials/palette";
+@use "./styles/mixins/mixins.scss";
+@use "./styles/taskbar.scss";
+@use "./styles/startmenu.scss";
+@use "./styles/desktop.scss";
+@use "./styles/address_book.scss";
+@use "./styles/applications.scss";
+@use "./styles/notepad.scss";
+@use "./styles/paint.scss";
+@use "./styles/wallpaper.scss";
 
 *,
 html {

@@ -1,6 +1,6 @@
-import { dragElement } from "./DragWindows.js";
-import { populateBoard, changeColor, resetBoard, toggleDraw } from "./paint.js";
-import { getCurrentTime } from "./clock.js";
+import { dragElement } from "./javascript/DragWindows.js";
+import { populateBoard, changeColor, resetBoard, toggleDraw } from "./javascript/paint.js";
+import { getCurrentTime } from "./javascript/clock.js";
 
 const menuClock = document.querySelector(".task-bar__clock");
 const startBtn = document.querySelector(".task-bar__start");
