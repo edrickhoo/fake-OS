@@ -17,26 +17,26 @@
 ## Description of project (spec / MVP)
 
 ### Requirement
--HTML
--CSS
--SASS
--Javascript
+*HTML
+*CSS
+*SASS
+*Javascript
 
 ### Features
--You will be creating an SPA (Single Page Application) -- [x]
--Desktop has a wallpaper that fits the viewport -- [x]
--There will be selectable icons -- [x]
--Selecting an icon will open an "app", creating a modal to display some content -- [x]
--Able to close an app -- [x]
--There will be a selectable menu -- [x]
--Selecting the menu will display a list of text and icons -- [x]
--The current time is displayed somewhere -- [x]
+*You will be creating an SPA (Single Page Application) -- [x]
+*Desktop has a wallpaper that fits the viewport -- [x]
+*There will be selectable icons -- [x]
+*Selecting an icon will open an "app", creating a modal to display some content -- [x]
+*Able to close an app -- [x]
+*There will be a selectable menu -- [x]
+*Selecting the menu will display a list of text and icons -- [x]
+*The current time is displayed somewhere -- [x]
 
 ### MVP:
 
 #### HTML/SCSS
-...-Wallpaper scales to fit the viewport -- [x]
-...-Minimum 3 icons on desktop -- [x]
+*Wallpaper scales to fit the viewport -- [x]
+*Minimum 3 icons on desktop -- [x]
 ...-The menu is positioned in the appropriate place (bottom left on windows, top of the screen on android) -- [x]
 ...-Apps look consistent -- [x]
 ...-Menu contains a flex with content inside it -- [x]
