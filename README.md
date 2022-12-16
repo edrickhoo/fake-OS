@@ -1,6 +1,6 @@
 # fake-OS
 
-## Image
+## Preview
 
 ![Screenshot](./screenshot/fake-os-thumbnail.png)
 
