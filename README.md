@@ -35,17 +35,17 @@
 ### MVP:
 
 #### HTML/SCSS
--Wallpaper scales to fit the viewport -- [x]
--Minimum 3 icons on desktop -- [x]
--The menu is positioned in the appropriate place (bottom left on windows, top of the screen on android) -- [x]
--Apps look consistent -- [x]
--Menu contains a flex with content inside it -- [x]
--Apps should be able to contain text, an image or a form -- [x]
+...-Wallpaper scales to fit the viewport -- [x]
+...-Minimum 3 icons on desktop -- [x]
+...-The menu is positioned in the appropriate place (bottom left on windows, top of the screen on android) -- [x]
+...-Apps look consistent -- [x]
+...-Menu contains a flex with content inside it -- [x]
+...-Apps should be able to contain text, an image or a form -- [x]
 #### JavaScript
--Put your js code into separate files -- [x]
--Your icons and menu should add event listener for the click event, don't use the html onclick attribute -- [x]
--Give your functions and variables good names -- [x]
--Use the arrow syntax to declare functions -- [x]
+...-Put your js code into separate files -- [x]
+...-Your icons and menu should add event listener for the click event, don't use the html onclick attribute -- [x]
+...-Give your functions and variables good names -- [x]
+...-Use the arrow syntax to declare functions -- [x]
 
 ## Approach
 
