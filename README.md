@@ -1,11 +1,11 @@
 # fake-OS
 
-##Image
+## Image
 
 ![Screenshot](./screenshot/fake-os-thumbnail.png)
 
 
-##Deployed Version
+## Deployed Version
 
 - [Link]( https://vercel.com/edrickhoo/fake-os)
 
