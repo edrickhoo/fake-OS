@@ -22,7 +22,7 @@
 -SASS
 -Javascript
 
-###Features
+### Features
 -You will be creating an SPA (Single Page Application) -- [x]
 -Desktop has a wallpaper that fits the viewport -- [x]
 -There will be selectable icons -- [x]
@@ -32,16 +32,16 @@
 -Selecting the menu will display a list of text and icons -- [x]
 -The current time is displayed somewhere -- [x]
 
-###MVP:
+### MVP:
 
-####HTML/SCSS
+#### HTML/SCSS
 -Wallpaper scales to fit the viewport -- [x]
 -Minimum 3 icons on desktop -- [x]
 -The menu is positioned in the appropriate place (bottom left on windows, top of the screen on android) -- [x]
 -Apps look consistent -- [x]
 -Menu contains a flex with content inside it -- [x]
 -Apps should be able to contain text, an image or a form -- [x]
-####JavaScript
+#### JavaScript
 -Put your js code into separate files -- [x]
 -Your icons and menu should add event listener for the click event, don't use the html onclick attribute -- [x]
 -Give your functions and variables good names -- [x]
