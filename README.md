@@ -75,7 +75,7 @@
 *  [Code WET or DRY?]( https://dzone.com/articles/is-your-code-dry-or-wet#:~:text=DRY%20code%20is%20a%20software,t%20adhere%20to%20DRY%20principle.)
 *  [Breaking Down Monster Projects]( https://www.informit.com/articles/article.aspx?p=2153472)
 
-### Stay in touch
+## Stay in touch
 
 *  [Portfolio]( https://edric-khoo.vercel.app/)
 *  [Linkedin]( https://www.linkedin.com/in/edric-khoo-98881b173/)
