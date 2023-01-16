@@ -56,6 +56,7 @@
 .task-bar__app--selected {
   box-shadow: inset 4.5px 4.5px 0px -3px rgba(65, 65, 65, 0.75), 1px 1px 0px 0px rgba(255, 255, 255, 0.75);
 }
+
 .start-menu {
   display: none;
   background-color: #c3c3c3;
@@ -286,6 +287,7 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
+  background-size: cover;
   -webkit-user-drag: none;
   background-image: url("./assets/wallpaper/windows-95-wallpaper.jpg");
   background-position: center;
