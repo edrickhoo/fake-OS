@@ -7,7 +7,7 @@
 
 ## Deployed Version
 
-* [Link]( https://vercel.com/edrickhoo/fake-os)
+* [Link]( https://fake-os.vercel.app/)
 
 ## Setup
 
@@ -50,21 +50,21 @@
 ## Approach
 
 * Broke the app into smaller sections and work on each small feature one by one eg. Working on taskbar, clock, startmenu, each small app one at a time.
-* Research ideas online that I didnt have a good understanding of eg. Draggable windows
+* Research ideas online that I didn't have a good understanding of eg. Draggable windows
 * This was made with Javascript instead of other frameworks to solidify my understanding of how to select elements in the DOM and to manipulate them, to give functionality or change styling.
-* Tried to keep things modular with styles seperate in their own component files and linked to one file with sass, Javascript files were seperated logc files and DOM files.
+* Tried to keep things modular with styles separate in their own component files and linked to one file with sass, Javascript files were separated logic files and DOM files.
 
 ## Reflection
 
-*  What went well?  Reference images were availiable online so I felt that the styling process was easier and went well.
-*  What are you proud of? I am proud that the paint app works as serveral bugs and debugs occured when building the application.
+*  What went well?  Reference images were available online so I felt that the styling process was easier and went well.
+*  What are you proud of? I am proud that the paint app works as several bugs and debugs occurred when building the application.
 *  What was a challenge? Making the windows draggable as trying to implement the function I was selecting the wrong elements and breaking the code.
 *  What you'd do differently? Try to create the rendering of the applications be done in reusable javascript code instead of hard-coding and hiding the divs.
 
 ## Future Goals
 
 * Add more applications, eg. Photo gallery app
-* Using DRY create DOM functions that render applications dymanically.
+* Using DRY to create DOM functions that render applications dynamically.
 * Add testing for logic components
 * Make the taskbar applications focus when it is clicked
 
@@ -79,4 +79,5 @@
 
 *  [Portfolio]( https://edric-khoo.vercel.app/)
 *  [Linkedin]( https://www.linkedin.com/in/edric-khoo-98881b173/)
+
 
