@@ -308,12 +308,6 @@ addressBookAddBtn.addEventListener("click", (e) => {
   addToAddressBook(e);
 });
 
-// Dragable
-
-dragElement(document.querySelector(".app__address_book"));
-dragElement(document.querySelector(".app__notepad"));
-dragElement(document.querySelector(".app__paint"));
-
 // Paint toggle coloring
 document.querySelector(".paint__board").addEventListener("click", (e) => {
   toggleDraw(e);
@@ -377,3 +371,9 @@ applications.forEach((app) => {
     selectApp(app);
   });
 });
+
+// Dragable
+
+dragElement(document.querySelector(".app__address_book"));
+dragElement(document.querySelector(".app__notepad"));
+dragElement(document.querySelector(".app__paint"));

@@ -4,15 +4,6 @@ export const dragElement = (elmnt) => {
     pos3 = 0,
     pos4 = 0;
 
-  if (document.querySelector(`.${elmnt.classList[1]}--header-bar`)) {
-    // if present, the header is where you move the DIV from:
-    document.querySelector(`.${elmnt.classList[1]}--header-bar`).onmousedown =
-      dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
-
   const dragMouseDown = (e) => {
     e = e || window.event;
     e.preventDefault();
@@ -23,6 +14,15 @@ export const dragElement = (elmnt) => {
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
   };
+
+  if (document.querySelector(`.${elmnt.classList[1]}--header-bar`)) {
+    // if present, the header is where you move the DIV from:
+    document.querySelector(`.${elmnt.classList[1]}--header-bar`).onmousedown =
+      dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
 
   const elementDrag = (e) => {
     e = e || window.event;
