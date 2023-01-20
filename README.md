@@ -56,10 +56,14 @@
 
 ## Reflection
 
-*  What went well?  Reference images were available online so I felt that the styling process was easier and went well.
-*  What are you proud of? I am proud that the paint app works as several bugs and debugs occurred when building the application.
-*  What was a challenge? Making the windows draggable as trying to implement the function I was selecting the wrong elements and breaking the code.
-*  What you'd do differently? Try to create the rendering of the applications be done in reusable javascript code instead of hard-coding and hiding the divs.
+* What went well?  
+  - Reference images were available online so I felt that the styling process was easier and went well.
+* What are you proud of? 
+  - I am proud that the paint app works as several bugs and debugs occurred when building the application.
+* What was a challenge? 
+  - Making the windows draggable as trying to implement the function I was selecting the wrong elements and breaking the code.
+* What you'd do differently? 
+  - Try to create the rendering of the applications be done in reusable javascript code instead of hard-coding and hiding the divs.
 
 ## Future Goals
 
