@@ -131,6 +131,8 @@ const removeInOpenedApps = (appName) => {
 const openWindow = (appName) => {
   let app = document.querySelector(`.app__${appName}`);
   app.style.display = "flex";
+
+  changeZIndex(app);
   addToOpenedApps(appName);
 };
 
